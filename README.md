@@ -41,3 +41,32 @@ npm install
 # Installation des dépendances serveur  
 cd ../server
 npm install
+
+
+# Mode développement
+# Démarrer le serveur
+cd server
+npm run dev
+
+# Démarrer le client (dans un nouveau terminal)
+cd client
+npm run dev
+
+# Mode production
+# Build du client
+cd client
+npm run build
+
+# Démarrage du serveur
+cd server
+npm start
+
+ÉTAPE 1 : CRÉATION DU PROJET ET INSTALLATION DES DÉPENDANCES 
+# Ce qui a été accompli :
+.Structure des dossiers client et serveur
+.Configuration des fichiers package.json
+.Installation des dépendances MERN
+.Configuration des variables d'environnement
+.Configuration de la base de données MongoDB
+.Système de logging
+.Configuration Git et .gitignore

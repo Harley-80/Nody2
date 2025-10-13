@@ -89,3 +89,17 @@ Nody est une plateforme de commerce électronique spécialisée dans la vente d'
 -   Indexes MongoDB pour les performances
 -   Méthodes utilitaires pour la logique métier
 -   Virtuals pour les données calculées
+
+## ÉTAPE 3 : CONTRÔLEURS ET ROUTES POUR L'AUTHENTIFICATION 
+### Ce qui a été accompli :
+
+### Authentification :
+
+-   Implémentation du middleware d'authentification JWT.
+-   Création des contrôleurs auth et utilisateurs.
+-   Validation des données avec express-validator.
+-   Système complet d'inscription/connexion avec sécurité.
+-   Gestion des mots de passe oubliés et vérification de compte.
+-   Routes protégées avec gestion des rôles.
+-   Configuration multi-devises.
+-   Documentation API complète.

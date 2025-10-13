@@ -1,0 +1,36 @@
+### Test 1 de l'API pour vérifier que tout fonctionne :
+
+### Test de santé de l'API
+GET http://localhost:5000/api/health
+
+### Inscription d'un nouvel utilisateur
+POST http://localhost:5000/api/auth/inscription
+Content-Type: application/json
+
+    {
+    "nom": "HARLEY",
+    "prenom": "Nody",
+    "email": "harley.nody@email.com",
+    "motDePasse": "Passer123",
+    "confirmationMotDePasse": "Passer123",
+    "telephone": "+221 780001211",
+    "genre": "homme",
+    "preferences": {
+        "newsletter": true,
+        "devise": "XOF",
+        "langue": "fr"
+    }
+}
+
+### Connexion
+POST http://localhost:5000/api/auth/connexion
+Content-Type: application/json
+
+{
+  "email": "harley.nody@email.com",
+  "motDePasse": "Passer123"
+}
+
+### Récupérer le profil (remplacez TOKEN par le token reçu)
+GET http://localhost:5000/api/utilisateurs/profil
+Authorization: Bearer TOKEN

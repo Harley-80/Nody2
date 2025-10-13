@@ -1,0 +1,51 @@
+### Récupérer le panier (remplacer TOKEN)
+GET http://localhost:5000/api/panier
+Authorization: Bearer TOKEN
+
+### Ajouter un article au panier
+POST http://localhost:5000/api/panier/articles
+Authorization: Bearer TOKEN
+Content-Type: application/json
+
+{
+    "produitId": "ID_DU_PRODUIT",
+    "quantite": 2,
+    "taille": "M",
+    "couleur": "Noir"
+}
+
+### Appliquer un code promo
+POST http://localhost:5000/api/panier/code-promo
+Authorization: Bearer TOKEN
+Content-Type: application/json
+
+{
+    "code": "NOUVEAU10"
+}
+
+### Créer une commande
+POST http://localhost:5000/api/commandes
+Authorization: Bearer TOKEN
+Content-Type: application/json
+
+{
+  "adresseLivraison": {
+        "nomComplet": "Jean Dupont",
+        "rue": "123 Rue de la Mode",
+        "ville": "Paris",
+        "codePostal": "75001",
+        "pays": "France",
+        "telephone": "+33123456789"
+    },
+  "methodePaiement": "carte_credit",
+  "noteClient": "Livraison en matinée si possible",
+  "estCommandeExpress": false
+}
+
+### Récupérer les commandes de l'utilisateur
+GET http://localhost:5000/api/commandes
+Authorization: Bearer TOKEN
+
+### Suivre une commande
+GET http://localhost:5000/api/commandes/ID_COMMANDE/suivi
+Authorization: Bearer TOKEN

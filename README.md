@@ -82,16 +82,34 @@ Nody est une plateforme de commerce électronique spécialisée dans la vente d'
 ## ÉTAPE 3 : CONTRÔLEURS ET ROUTES POUR L'AUTHENTIFICATION 
 ### Ce qui a été accompli :
 
-### Authentification :
+### Authentification
+-   Création de compte
+-   Connexion utilisateur
+-   Déconnexion
+-   Demande réinitialisation mot de passe
+-   Réinitialisation mot de passe
+-   Vérification de compte
+-   Renvoyer email vérification
+-   Utilisateur connecté
 
--   Implémentation du middleware d'authentification JWT.
--   Création des contrôleurs auth et utilisateurs.
--   Validation des données avec express-validator.
--   Système complet d'inscription/connexion avec sécurité.
--   Gestion des mots de passe oubliés et vérification de compte.
--   Routes protégées avec gestion des rôles.
--   Configuration multi-devises.
--   Documentation API complète.
+### Utilisateurs
+-   Profil utilisateur
+-   Mettre à jour le profil
+-   Changer mot de passe
+-   Ajouter une adresse
+-   Modifier une adresse
+-   Supprimer une adresse
+
+### Santé
+-   Vérification du statut de l'API
+
+### Sécurité
+-   Authentification JWT avec tokens sécurisés
+-   Hashage des mots de passe avec bcrypt
+-   Validation des données d'entrée
+-   Protection contre les attaques XSS et injection
+-   Rate limiting pour prévenir les brute force
+-   Headers de sécurité avec Helmet
 
 ## ÉTAPE 4 : CONTRÔLEURS ET ROUTES POUR LES PRODUITS ET CATÉGORIES
 ### Ce qui a été accompli :
@@ -147,3 +165,64 @@ Nody est une plateforme de commerce électronique spécialisée dans la vente d'
 -   Promotions et prix spéciaux
 -   Images multiples
 -   Métadonnées SEO
+
+## ÉTAPE 5 : SYSTÈME DE COMMANDES ET PANIER D'ACHAT
+### Ce qui a été accompli :
+
+### Panier d'Achat
+-   Récupérer le panier
+-   Ajouter un article
+-   Modifier la quantité
+-   Supprimer un article
+-   Vider le panier
+-   Appliquer un code promo
+-   Supprimer le code promo
+
+### Commandes
+-   Créer une commande
+-   Commandes de l'utilisateur
+-   Détails d'une commande
+-   Annuler une commande
+-   Suivre une commande
+
+### Administration des Commandes
+-   Statistiques (Admin)
+-   Toutes les commandes (Admin)
+-   Mettre à jour le statut (Admin)
+
+## Fonctionnalités du Panier et Commandes
+
+### Gestion du Panier
+-   Ajout/suppression d'articles avec variantes
+-   Gestion des quantités avec limites
+-   Vérification en temps réel de la disponibilité
+-   Codes promo avec pourcentages de réduction
+-   Calcul automatique des totaux
+-   Persistance par utilisateur
+
+### Processus de Commande
+-   Création de commande avec transaction sécurisée
+-   Vérification des stocks en temps réel
+-   Gestion des adresses de livraison et facturation
+-   Calcul des frais de livraison
+-   Commandes express avec livraison accélérée
+
+### Suivi des Commandes
+-   Statuts multiples avec historique
+-   Numéros de suivi pour la livraison
+-   Notifications de changement de statut
+-   Possibilité d'annulation (selon le statut)
+
+### Administration
+-   Tableau de bord avec statistiques
+-   Gestion des statuts de commande
+-   Vue d'ensemble de toutes les commandes
+-   Outils de suivi et gestion
+
+## Workflow Typique
+1. **Ajout au panier** → Vérification stock → Calcul prix
+2. **Application code promo** → Calcul réduction → Mise à jour total
+3. **Validation commande** → Vérification adresse → Création commande
+4. **Paiement** → Mise à jour statut → Réduction stocks
+5. **Expédition** → Numéro de suivi → Notification client
+6. **Livraison** → Confirmation → Historique complet

@@ -14,7 +14,7 @@ import { connectDB } from './config/database.js';
 import { errorHandler } from './middleware/errorMiddleware.js';
 import { logger } from './utils/logger.js';
 
-// Routes
+// Routes (Consolidation des imports)
 import authRoutes from './routes/authRoutes.js';
 import utilisateursRoutes from './routes/utilisateursRoutes.js';
 import produitsRoutes from './routes/produitsRoutes.js';
@@ -22,6 +22,7 @@ import categorieRoutes from './routes/categorieRoutes.js';
 import commandesRoutes from './routes/commandesRoutes.js';
 import paiementRoutes from './routes/paiementRoutes.js';
 import catalogueRoutes from './routes/catalogueRoutes.js';
+import panierRoutes from './routes/panierRoutes.js';
 
 // Pour obtenir __dirname dans les modules ES
 const __filename = fileURLToPath(import.meta.url);
@@ -99,9 +100,10 @@ class App {
         this.app.use('/api/utilisateurs', utilisateursRoutes);
         this.app.use('/api/produits', produitsRoutes);
         this.app.use('/api/categories', categorieRoutes);
-        this.app.use('/api/commandes', commandesRoutes);
+        this.app.use('/api/commandes', commandesRoutes); 
         this.app.use('/api/paiements', paiementRoutes);
         this.app.use('/api/catalogue', catalogueRoutes);
+        this.app.use('/api/panier', panierRoutes);
 
         // Route de santé
         this.app.get('/api/health', (req, res) => {

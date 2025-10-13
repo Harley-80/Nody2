@@ -1,0 +1,30 @@
+### Récupérer les catégories racines
+GET http://localhost:5000/api/categories/racines
+
+### Récupérer l'arbre des catégories
+GET http://localhost:5000/api/categories/arbre/complet
+
+### Récupérer les produits avec filtres
+GET http://localhost:5000/api/produits?page=1&limit=12&sort=createdAt&order=desc
+
+### Récupérer les nouveaux produits
+GET http://localhost:5000/api/produits/nouveautes?limit=8
+
+### Recherche avancée
+GET http://localhost:5000/api/catalogue/recherche?q=chemise&categories=vetements-homme&prixMin=20&prixMax=100
+
+### Statistiques du catalogue
+GET http://localhost:5000/api/catalogue/statistiques
+
+### Créer une catégorie (Admin - remplacer TOKEN)
+POST http://localhost:5000/api/categories
+Authorization: Bearer TOKEN
+Content-Type: application/json
+
+{
+    "nom": "Vêtements Sport",
+    "description": "Vêtements pour les activités sportives",
+    "ordreAffichage": 10,
+    "metaTitre": "Vêtements de Sport - Nody",
+    "metaDescription": "Découvrez notre collection de vêtements de sport pour homme et femme"
+}

@@ -21,6 +21,7 @@ import produitsRoutes from './routes/produitsRoutes.js';
 import categorieRoutes from './routes/categorieRoutes.js';
 import commandesRoutes from './routes/commandesRoutes.js';
 import paiementRoutes from './routes/paiementRoutes.js';
+import catalogueRoutes from './routes/catalogueRoutes.js';
 
 // Pour obtenir __dirname dans les modules ES
 const __filename = fileURLToPath(import.meta.url);
@@ -100,6 +101,7 @@ class App {
         this.app.use('/api/categories', categorieRoutes);
         this.app.use('/api/commandes', commandesRoutes);
         this.app.use('/api/paiements', paiementRoutes);
+        this.app.use('/api/catalogue', catalogueRoutes);
 
         // Route de santé
         this.app.get('/api/health', (req, res) => {

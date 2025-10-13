@@ -30,17 +30,6 @@ Nody est une plateforme de commerce électronique spécialisée dans la vente d'
 - **MongoDB**
 - **NPM** (v10.9.0)
 
-### Installation des dépendances
-
-## Installation des dépendances client
-- cd client
-- npm install
-
-## Installation des dépendances serveur  
-- cd ../server
-- npm install
-
-
 ## Mode développement
 # Démarrer le serveur
 - cd server
@@ -103,3 +92,58 @@ Nody est une plateforme de commerce électronique spécialisée dans la vente d'
 -   Routes protégées avec gestion des rôles.
 -   Configuration multi-devises.
 -   Documentation API complète.
+
+## ÉTAPE 4 : CONTRÔLEURS ET ROUTES POUR LES PRODUITS ET CATÉGORIES
+### Ce qui a été accompli :
+
+### Catalogue & Produits
+-   Liste des produits avec filtres 
+-   Nouveaux produits
+-   Produits en promotion
+-   Produits populaires
+-   Détails d'un produit par ID
+-   Détails d'un produit par slug
+-   Ajouter un avis (connecté)
+
+### Catégories
+-   Liste des catégories 
+-   Catégories racines
+-   Arbre complet des catégories
+-   Détails d'une catégorie
+
+### Catalogue Avancé
+-   Recherche avancée
+-   Statistiques du catalogue
+-   Produits recommandés (connecté)
+
+### Administration
+-   Créer une catégorie (Admin)
+-   Modifier une catégorie (Admin)
+-   Supprimer une catégorie (Admin)
+-   Créer un produit (Vendeur/Admin)
+-   Modifier un produit (Vendeur/Admin)
+-   Supprimer un produit (Vendeur/Admin)
+
+## Fonctionnalités du Catalogue
+### Filtres Disponibles
+-   Par catégorie et sous-catégories
+-   Par marque
+-   Par fourchette de prix
+-   Par tailles et couleurs
+-   En stock uniquement
+-   Produits en promotion
+-   Nouveaux produits
+
+### Recherche Avancée
+-   Recherche texte dans nom, description, marque et tags
+-   Filtres multiples combinables
+-   Tri par pertinence, prix, nouveauté, popularité
+-   Pagination avec métadonnées
+
+### Gestion des Produits
+-   Système de variantes (tailles/couleurs)
+-   Gestion des stocks par variante
+-   Système d'avis et notations
+-   Promotions et prix spéciaux
+-   Images multiples
+-   Métadonnées SEO

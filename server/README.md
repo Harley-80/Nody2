@@ -10,3 +10,6 @@ npm install xss-clean
 npm install dotenv
 npm install mongoose
 npm install nodemailer
+npm install jsonwebtoken
+npm install express-validator
+npm install bcryptjs

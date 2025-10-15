@@ -1,0 +1,28 @@
+@use '../../../styles/resumes/variables' as v;
+
+.layout {
+    background-color: v.$couleur-fond;
+    
+    main {
+        padding-top: 1rem;
+        
+        @include media-breakpoint-up(md) {
+        padding-top: 2rem;
+        }
+    }
+}
+
+// Correction pour le sticky header
+.header-sticky {
+    position: sticky;
+    top: 0;
+    z-index: v.$z-index-sticky;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid v.$couleur-bordure;
+}
+
+// Espacement pour le contenu fixe
+.content-with-fixed-header {
+  padding-top: 80px; // Hauteur du header
+}

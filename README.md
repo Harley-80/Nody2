@@ -273,3 +273,55 @@ STRIPE_WEBHOOK_SECRET=whsec_... en cours
 - SASS moderne avec modules
 - i18next pour l'internationalisation
 - Context API pour la gestion d'état
+
+## ÉTAPE 8 : CONTEXTES REACT ET COMPOSANTS DE LAYOUT
+### Ce qui a été accompli :
+
+## Contextes React Implémentés
+
+### AuthContext
+Gestion complète de l'authentification :
+- Connexion/déconnexion/inscription
+- Vérification automatique du token
+- Gestion des permissions (admin/vendeur)
+- Mise à jour du profil
+
+### CartContext
+Gestion du panier d'achat :
+- Panier persistant (localStorage + API)
+- Synchronisation automatique après connexion
+- Codes promo et réductions
+- Calculs automatiques des totaux
+
+### ProduitsContext
+Gestion des produits et catalogue :
+- Chargement des produits avec filtres
+- Recherche avec suggestions
+- Gestion des catégories
+- Cache et optimisation des requêtes
+
+### ToastContext
+Système de notifications :
+- Notifications contextuelles
+- Types variés (success, error, warning, info)
+- Fermeture automatique
+- API simple d'utilisation
+
+## Composants de Layout
+
+### Structure Principale
+- **Layout** : Structure générale de l'application
+- **Header** : Navigation avec recherche et panier
+- **Footer** : Liets et informations
+- **AdminLayout** : Interface d'administration
+
+### Composants Communs
+- **SearchBar** : Barre de recherche avec suggestions
+- **UserDropdown** : Menu utilisateur
+- **ProtectedRoute** : Protection des routes
+
+## Utilisation des Contextes
+
+### Authentification
+```jsx
+const { estAuthentifie, utilisateur, connecter, deconnecter } = useAuth();

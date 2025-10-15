@@ -1,0 +1,82 @@
+@use '../../styles/resumes/variables' as v;
+@use '../../styles/resumes/mixins' as m;
+
+.search-bar {
+    width: 100%;
+    max-width: 400px;
+
+    .search-input {
+        border-right: none;
+
+        &:focus {
+            box-shadow: none;
+            border-color: v.$couleur-bordure;
+        }
+    }
+
+    .btn {
+        border-left: none;
+    }
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: v.$couleur-fond;
+    border: 1px solid v.$couleur-bordure;
+    border-top: none;
+    border-radius: 0 0 v.$rayon-bordure-md v.$rayon-bordure-md;
+    box-shadow: v.$ombre-lg;
+    z-index: v.$z-index-dropdown;
+    max-height: 300px;
+    overflow-y: auto;
+
+    .suggestion-item {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        cursor: pointer;
+        transition: background-color v.$transition-rapide;
+        border-bottom: 1px solid v.$couleur-fond-secondaire;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &:hover {
+            background-color: v.$couleur-fond-secondaire;
+        }
+
+        .suggestion-image {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: v.$rayon-bordure-sm;
+            margin-right: 1rem;
+        }
+
+        .suggestion-info {
+            flex: 1;
+
+            .suggestion-name {
+                font-size: 0.875rem;
+                font-weight: 500;
+                margin-bottom: 0.25rem;
+                @include m.text-truncate;
+            }
+
+            .suggestion-price {
+                font-size: 0.875rem;
+            }
+        }
+    }
+}
+
+// Responsive
+@include m.media-breakpoint-down(md) {
+    .search-bar {
+        max-width: 100%;
+    }
+}

@@ -130,7 +130,7 @@ panierSchema.methods.ajouterArticle = function (article) {
 // Méthode pour mettre à jour la quantité d'un article
 panierSchema.methods.mettreAJourQuantite = function (articleId, nouvelleQuantite) {
     const article = this.articles.id(articleId);
-    
+
     // Vérifier que la nouvelle quantité est dans les limites
     if (article) {
         article.quantite = Math.min(Math.max(nouvelleQuantite, 1), 100);

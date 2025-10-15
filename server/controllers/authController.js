@@ -75,15 +75,15 @@ export const inscription = async (req, res, next) => {
         await utilisateur.save({ validateBeforeSave: false });
 
         try {
-            // Envoyer l'email de bienvenue 
+            // Envoyer l'email de bienvenue
             await envoyerEmail({
                 email: utilisateur.email,
                 sujet: 'Bienvenue sur Nody - Vérifiez votre compte',
                 template: 'bienvenue',
                 donnees: {
                     nom: utilisateur.prenom,
-                    token: tokenVerification
-                }
+                    token: tokenVerification,
+                },
             });
 
             logger.info(`Nouvel utilisateur inscrit: ${utilisateur.email}`);
@@ -208,8 +208,8 @@ export const motDePasseOublie = async (req, res, next) => {
                 template: 'resetPassword',
                 donnees: {
                     nom: utilisateur.prenom,
-                    token: tokenReinitialisation
-                }
+                    token: tokenReinitialisation,
+                },
             });
 
             logger.info(`Email réinitialisation envoyé à: ${utilisateur.email}`);
@@ -340,14 +340,14 @@ export const renvoyerVerification = async (req, res, next) => {
 
         try {
             // Envoyer l'email de vérification
-                await envoyerEmail({
+            await envoyerEmail({
                 email: utilisateur.email,
                 sujet: 'Vérification de votre compte Nody',
                 template: 'bienvenue',
                 donnees: {
                     nom: utilisateur.prenom,
-                    token: tokenVerification
-                }
+                    token: tokenVerification,
+                },
             });
 
             logger.info(`Email vérification renvoyé à: ${utilisateur.email}`);

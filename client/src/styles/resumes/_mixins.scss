@@ -1,0 +1,206 @@
+// client/src/styles/resumes/_mixins.scss - CORRIGÉ
+@use 'variables' as v;
+
+// Mixins pour les media queries
+@mixin media-breakpoint-up($breakpoint) {
+    @if $breakpoint == sm {
+        @media (min-width: 640px) {
+            @content;
+        }
+    } @else if $breakpoint == md {
+        @media (min-width: 768px) {
+            @content;
+        }
+    } @else if $breakpoint == lg {
+        @media (min-width: 1024px) {
+            @content;
+        }
+    } @else if $breakpoint == xl {
+        @media (min-width: 1280px) {
+            @content;
+        }
+    } @else if $breakpoint == 2xl {
+        @media (min-width: 1536px) {
+            @content;
+        }
+    }
+}
+
+@mixin media-breakpoint-down($breakpoint) {
+    @if $breakpoint == sm {
+        @media (max-width: 639.98px) {
+            @content;
+        }
+    } @else if $breakpoint == md {
+        @media (max-width: 767.98px) {
+            @content;
+        }
+    } @else if $breakpoint == lg {
+        @media (max-width: 1023.98px) {
+            @content;
+        }
+    } @else if $breakpoint == xl {
+        @media (max-width: 1279.98px) {
+            @content;
+        }
+    } @else if $breakpoint == 2xl {
+        @media (max-width: 1535.98px) {
+            @content;
+        }
+    }
+}
+
+// Mixin pour le texte tronqué
+@mixin text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Mixin pour les multiples lignes tronquées
+@mixin text-truncate-multiline($lines: 2) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+// Mixin pour les boutons
+@mixin bouton-base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: v.$rayon-bordure-md; // CORRIGÉ: v.$rayon-bordure-md
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all v.$transition-rapide; // CORRIGÉ: v.$transition-rapide
+    user-select: none;
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
+
+@mixin bouton-primaire {
+    @include bouton-base;
+    background-color: v.$couleur-primaire; // CORRIGÉ: v.$couleur-primaire
+    color: white;
+
+    &:hover:not(:disabled) {
+        background-color: v.$couleur-primaire-hover; // CORRIGÉ: v.$couleur-primaire-hover
+        transform: translateY(-1px);
+    }
+
+    &:active:not(:disabled) {
+        transform: translateY(0);
+    }
+}
+
+@mixin bouton-secondaire {
+    @include bouton-base;
+    background-color: transparent;
+    color: v.$couleur-primaire; // CORRIGÉ: v.$couleur-primaire
+    border: 2px solid v.$couleur-primaire; // CORRIGÉ: v.$couleur-primaire
+
+    &:hover:not(:disabled) {
+        background-color: v.$couleur-primaire; // CORRIGÉ: v.$couleur-primaire
+        color: white;
+    }
+}
+
+// Mixin pour les cartes
+@mixin carte-base {
+    background: v.$couleur-fond; // CORRIGÉ: v.$couleur-fond
+    border-radius: v.$rayon-bordure-lg; // CORRIGÉ: v.$rayon-bordure-lg
+    box-shadow: v.$ombre-sm; // CORRIGÉ: v.$ombre-sm
+    transition: all v.$transition-base; // CORRIGÉ: v.$transition-base
+
+    &:hover {
+        box-shadow: v.$ombre-md; // CORRIGÉ: v.$ombre-md
+        transform: translateY(-2px);
+    }
+}
+
+// Mixin pour les inputs
+@mixin input-base {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid v.$couleur-bordure; // CORRIGÉ: v.$couleur-bordure
+    border-radius: v.$rayon-bordure-md; // CORRIGÉ: v.$rayon-bordure-md
+    background-color: v.$couleur-fond; // CORRIGÉ: v.$couleur-fond
+    transition: all v.$transition-rapide; // CORRIGÉ: v.$transition-rapide
+    font-size: v.$taille-police-base; // CORRIGÉ: v.$taille-police-base
+
+    &:focus {
+        outline: none;
+        border-color: v.$couleur-primaire; // CORRIGÉ: v.$couleur-primaire
+        box-shadow: 0 0 0 3px rgba(v.$couleur-primaire, 0.1); // CORRIGÉ: v.$couleur-primaire
+    }
+
+    &::placeholder {
+        color: v.$couleur-texte-tertiaire; // CORRIGÉ: v.$couleur-texte-tertiaire
+    }
+}
+
+// Mixin pour les flexbox
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+// Mixin pour le positionnement absolu
+@mixin absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// Mixin pour les animations de fade
+@mixin fade-in($duration: 0.3s) {
+    animation: fadeIn $duration ease-out;
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+// Mixin pour le skeleton loading
+@mixin skeleton-loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+
+    @keyframes loading {
+        0% {
+            background-position: 200% 0;
+        }
+        100% {
+            background-position: -200% 0;
+        }
+    }
+}

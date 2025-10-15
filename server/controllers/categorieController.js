@@ -103,7 +103,7 @@ export const getCategorieParSlug = async (req, res, next) => {
             .populate('parent', 'nom slug')
             .populate('sousCategories');
 
-            // Vérifier si la catégorie existe
+        // Vérifier si la catégorie existe
         if (!categorie) {
             return res.status(404).json({
                 success: false,

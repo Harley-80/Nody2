@@ -119,7 +119,7 @@ export const ajouterAdresse = async (req, res, next) => {
 
         await utilisateur.save();
 
-        // Retourner la liste mise à jour des adresses  
+        // Retourner la liste mise à jour des adresses
         res.status(201).json({
             success: true,
             message: 'Adresse ajoutée avec succès',

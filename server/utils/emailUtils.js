@@ -1,7 +1,6 @@
 import { logger } from './logger.js';
 import { config } from '../config/env.js';
 
-
 // Stub pour l'envoi d'emails - à implémenter avec Nodemailer
 export const envoyerEmail = async ({ email, sujet, template, donnees }) => {
     try {

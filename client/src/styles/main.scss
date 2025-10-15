@@ -1,0 +1,106 @@
+// client/src/styles/main.scss - VERSION FINALE
+
+// Configuration SASS moderne avec @use
+@use 'base/reinitialiser';
+@use 'resumes/variables' as v;
+@use 'resumes/mixins' as m;
+@use 'sass:color'; // Import du module couleur pour utiliser color.adjust
+
+// 1. IMPORT BOOTSTRAP avec @use (remplace toutes les lignes @import de Bootstrap)
+@use 'bootstrap/scss/bootstrap';
+
+// Composants personnalisés
+@use 'components/Bouton';
+@use 'components/Carte';
+
+
+// Styles de base (Maintenus en bas)
+body {
+    font-family:
+        'Inter',
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        'Roboto',
+        sans-serif;
+    line-height: 1.6;
+    color: v.$couleur-texte-principal;
+    background-color: v.$couleur-fond;
+}
+
+// Typographie
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+
+// Liens
+a {
+    color: v.$couleur-primaire;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+        // Correction de la fonction dépréciée 'darken'
+        color: color.adjust(v.$couleur-primaire, $lightness: -10%);
+    }
+}
+
+// Images responsives
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+// Utilitaires personnalisés
+.text-gradient {
+    background: linear-gradient(135deg, v.$couleur-primaire, v.$couleur-secondaire);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.shadow-soft {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+// Animations
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+// Loading states
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+// Responsive helpers
+.mobile-only {
+    @include m.media-breakpoint-up(md) {
+        display: none !important;
+    }
+}
+
+.desktop-only {
+    @include m.media-breakpoint-down(md) {
+        display: none !important;
+    }
+}

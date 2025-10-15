@@ -1,0 +1,104 @@
+// Variables de couleurs
+$couleur-primaire: #6366f1;
+$couleur-primaire-hover: #4f46e5;
+$couleur-secondaire: #ec4899;
+$couleur-success: #10b981;
+$couleur-warning: #f59e0b;
+$couleur-error: #ef4444;
+$couleur-info: #3b82f6;
+
+// Couleurs de texte
+$couleur-texte-principal: #1f2937;
+$couleur-texte-secondaire: #6b7280;
+$couleur-texte-tertiaire: #9ca3af;
+
+// Couleurs de fond
+$couleur-fond: #ffffff;
+$couleur-fond-secondaire: #f8fafc;
+$couleur-fond-tertiaire: #f1f5f9;
+
+// Couleurs de bordure
+$couleur-bordure: #e5e7eb;
+$couleur-bordure-hover: #d1d5db;
+
+// Couleurs d'état
+$couleur-etat-success: #dcfce7;
+$couleur-etat-warning: #fef3c7;
+$couleur-etat-error: #fee2e2;
+$couleur-etat-info: #dbeafe;
+
+// Typographie
+$police-principale:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+$police-secondaire: 'Georgia', serif;
+
+// Tailles de police
+$taille-police-xs: 0.75rem;
+$taille-police-sm: 0.875rem;
+$taille-police-base: 1rem;
+$taille-police-lg: 1.125rem;
+$taille-police-xl: 1.25rem;
+$taille-police-2xl: 1.5rem;
+$taille-police-3xl: 1.875rem;
+$taille-police-4xl: 2.25rem;
+
+// Espacements
+$espacement-xs: 0.25rem;
+$espacement-sm: 0.5rem;
+$espacement-md: 1rem;
+$espacement-lg: 1.5rem;
+$espacement-xl: 2rem;
+$espacement-2xl: 3rem;
+$espacement-3xl: 4rem;
+
+// Bordures
+$rayon-bordure-sm: 0.375rem;
+$rayon-bordure-md: 0.5rem;
+$rayon-bordure-lg: 0.75rem;
+$rayon-bordure-xl: 1rem;
+$rayon-bordure-complet: 9999px;
+
+// Ombres
+$ombre-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+$ombre-md:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+$ombre-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+$ombre-xl:
+    0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+// Points de rupture (breakpoints)
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Z-index
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+$z-index-toast: 1080;
+
+// Transitions
+$transition-rapide: 0.15s ease;
+$transition-base: 0.3s ease;
+$transition-lente: 0.5s ease;
+
+// Container max widths
+$container-max-width-sm: 640px;
+$container-max-width-md: 768px;
+$container-max-width-lg: 1024px;
+$container-max-width-xl: 1280px;
+$container-max-width-2xl: 1536px;

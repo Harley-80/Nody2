@@ -8,42 +8,48 @@ export const paiementConfig = {
         webhookSecret: config.stripeWebhookSecret,
     },
     devises: [
-        { // Devise par défaut afrique de l'ouest
+        {
+            // Devise par défaut afrique de l'ouest
             code: 'XOF',
             symbole: 'CFA',
             nom: 'Franc CFA (XOF)',
             locale: 'fr-FR',
             tauxConversion: 1,
         },
-        { // Devise par défaut afrique centrale
+        {
+            // Devise par défaut afrique centrale
             code: 'XAF',
             symbole: 'FCFA',
             nom: 'Franc CFA (XAF)',
             locale: 'fr-FR',
             tauxConversion: 1,
         },
-        { // Devise France
+        {
+            // Devise France
             code: 'EUR',
             symbole: '€',
             nom: 'Euro (EUR)',
             locale: 'fr-FR',
             tauxConversion: 0.0015,
         },
-        { // Devise USA
+        {
+            // Devise USA
             code: 'USD',
             symbole: '$',
             nom: 'Dollar US (USD)',
             locale: 'en-US',
             tauxConversion: 0.0016,
         },
-        { // Devise CANADA
+        {
+            // Devise CANADA
             code: 'CAD',
             symbole: 'C$',
             nom: 'Dollar Canadien (CAD)',
             locale: 'en-CA',
             tauxConversion: 0.0022,
         },
-        { // Devise Chine
+        {
+            // Devise Chine
             code: 'CNY',
             symbole: '¥',
             nom: 'Yuan Renminbi (CNY)',

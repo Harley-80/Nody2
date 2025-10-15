@@ -1,0 +1,135 @@
+@use '../resumes/variables' as v;
+@use '../resumes/mixins' as m;
+
+.carte-nody {
+    @include m.carte-base;
+
+    &__header {
+        padding: v.$espacement-lg;
+        border-bottom: 1px solid v.$couleur-bordure;
+    }
+
+    &__body {
+        padding: v.$espacement-lg;
+    }
+
+    &__footer {
+        padding: v.$espacement-lg;
+        border-top: 1px solid v.$couleur-bordure;
+        background-color: v.$couleur-fond-secondaire;
+    }
+
+    &--hover {
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: v.$ombre-lg;
+        }
+    }
+
+    &--bordered {
+        border: 1px solid v.$couleur-bordure;
+        box-shadow: none;
+
+        &:hover {
+            box-shadow: v.$ombre-sm;
+        }
+    }
+}
+
+// Carte de produit
+.carte-produit {
+    @include m.carte-base;
+    position: relative;
+    overflow: hidden;
+
+    &__image {
+        position: relative;
+        overflow: hidden;
+        background-color: v.$couleur-fond-secondaire;
+
+        img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform v.$transition-base;
+        }
+
+        &:hover img {
+            transform: scale(1.05);
+        }
+    }
+
+    &__badges {
+        position: absolute;
+        top: v.$espacement-md;
+        left: v.$espacement-md;
+        display: flex;
+        flex-direction: column;
+        gap: v.$espacement-xs;
+        z-index: 1;
+    }
+
+    &__badge {
+        padding: v.$espacement-xs v.$espacement-sm;
+        border-radius: v.$rayon-bordure-sm;
+        font-size: v.$taille-police-xs;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        &--new {
+            background-color: v.$couleur-success;
+            color: white;
+        }
+
+        &--sale {
+            background-color: v.$couleur-error;
+            color: white;
+        }
+
+        &--popular {
+            background-color: v.$couleur-warning;
+            color: white;
+        }
+    }
+
+    &__content {
+        padding: v.$espacement-lg;
+    }
+
+    &__title {
+        font-size: v.$taille-police-lg;
+        font-weight: 600;
+        margin-bottom: v.$espacement-sm;
+        @include m.text-truncate;
+    }
+
+    &__description {
+        color: v.$couleur-texte-secondaire;
+        margin-bottom: v.$espacement-md;
+        @include m.text-truncate-multiline(2);
+    }
+
+    &__price {
+        display: flex;
+        align-items: center;
+        gap: v.$espacement-sm;
+        margin-bottom: v.$espacement-lg;
+
+        &--current {
+            font-size: v.$taille-police-xl;
+            font-weight: 700;
+            color: v.$couleur-primaire;
+        }
+
+        &--original {
+            font-size: v.$taille-police-base;
+            color: v.$couleur-texte-tertiaire;
+            text-decoration: line-through;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        gap: v.$espacement-sm;
+    }
+}

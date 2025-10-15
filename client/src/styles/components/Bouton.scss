@@ -1,0 +1,88 @@
+@use '../resumes/variables' as v;
+@use '../resumes/mixins' as m;
+
+// Classes de boutons personnalisées
+.btn-nody {
+    @include m.bouton-primaire;
+
+    &--secondary {
+        @include m.bouton-secondaire;
+    }
+
+    &--outline {
+        @include m.bouton-base;
+        background-color: transparent;
+        color: v.$couleur-texte-principal;
+        border: 2px solid v.$couleur-bordure;
+
+        &:hover:not(:disabled) {
+            background-color: v.$couleur-fond-secondaire;
+            border-color: v.$couleur-bordure-hover;
+        }
+    }
+
+    &--sm {
+        padding: 0.5rem 1rem;
+        font-size: v.$taille-police-sm;
+    }
+
+    &--lg {
+        padding: 1rem 2rem;
+        font-size: v.$taille-police-lg;
+    }
+
+    &--full {
+        width: 100%;
+    }
+
+    &--loading {
+        position: relative;
+        color: transparent;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 1rem;
+            height: 1rem;
+            border: 2px solid transparent;
+            border-top: 2px solid currentColor;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+// Boutons d'action rapide
+.btn-action {
+    @include m.flex-center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: v.$rayon-bordure-complet;
+    background-color: v.$couleur-fond-secondaire;
+    color: v.$couleur-texte-secondaire;
+    transition: all v.$transition-rapide;
+
+    &:hover {
+        background-color: v.$couleur-primaire;
+        color: white;
+        transform: scale(1.1);
+    }
+
+    &--primary {
+        background-color: v.$couleur-primaire;
+        color: white;
+
+        &:hover {
+            background-color: v.$couleur-primaire-hover;
+        }
+    }
+}

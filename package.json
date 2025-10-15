@@ -1,6 +1,6 @@
 {
     "name": "nody-ecommerce",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "Plateforme e-commerce de mode moderne",
     "main": "server/server.js",
     "scripts": {
@@ -9,11 +9,12 @@
         "client:dev": "cd client && npm run dev",
         "build": "cd client && npm run build",
         "start": "cd server && npm start",
-        "install-deps": "cd server && npm install && cd ../client && npm install"
+        "install-deps": "cd server && npm install && cd ../client && npm install",
+        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss}\""
     },
     "keywords": [
         "ecommerce",
-        "fashion",
+        "mode",
         "mern",
         "react",
         "nodejs"
@@ -21,6 +22,7 @@
     "author": "NDOUYI Harley Fedy",
     "license": "MIT",
     "devDependencies": {
-        "concurrently": "^8.2.2"
+        "concurrently": "^8.2.2",
+        "prettier": "^3.6.2"
     }
 }

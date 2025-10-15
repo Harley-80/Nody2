@@ -1,0 +1,42 @@
+
+### Créer une session de paiement (remplacer TOKEN et COMMANDE_ID)
+POST http://localhost:5000/api/paiements/creer-session
+Authorization: Bearer TOKEN
+Content-Type: application/json
+
+{
+    "commandeId": "COMMANDE_ID"
+}
+
+### Confirmer un paiement (simulation)
+POST http://localhost:5000/api/paiements/confirmer
+Authorization: Bearer TOKEN
+Content-Type: application/json
+
+{
+    "paymentIntentId": "pi_123456789"
+}
+
+### Récupérer l'historique des paiements
+GET http://localhost:5000/api/paiements
+Authorization: Bearer TOKEN
+
+### Webhook Stripe (test avec Stripe CLI)
+POST http://localhost:5000/api/paiements/webhook
+Content-Type: application/json
+Stripe-Signature: whsec_test_signature
+
+{
+    "id": "evt_test_webhook",
+    "object": "event",
+    "type": "payment_intent.succeeded",
+    "data": {
+        "object": {
+            "id": "pi_123456789",
+            "object": "payment_intent",
+            "amount": 2000,
+            "currency": "eur",
+            "status": "succeeded"
+        }
+    }
+}

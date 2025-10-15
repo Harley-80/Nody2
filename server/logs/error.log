@@ -1,0 +1,15 @@
+[2025-10-14T06:31:56.387Z] ERROR: Exception non catchée: Neither apiKey nor config.authenticator provided
+[2025-10-14T06:37:40.939Z] ERROR: Exception non catchée: Neither apiKey nor config.authenticator provided
+[2025-10-14T06:40:05.907Z] ERROR: Exception non catchée: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+[2025-10-14T06:43:25.638Z] ERROR: Exception non catchée: Missing parameter name at index 2: /*; visit https://git.new/pathToRegexpError for info
+[2025-10-14T06:43:43.966Z] ERROR: Exception non catchée: Missing parameter name at index 2: /*; visit https://git.new/pathToRegexpError for info
+[2025-10-14T06:45:00.301Z] ERROR: Exception non catchée: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+[2025-10-14T06:45:48.906Z] ERROR: Exception non catchée: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+[2025-10-14T06:53:37.151Z] ERROR: Exception non catchée: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+[2025-10-14T06:57:12.386Z] ERROR: Exception non catchée: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+[2025-10-14T06:58:22.363Z] ERROR: Exception non catchée: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+[2025-10-14T06:58:23.752Z] ERROR: Exception non catchée: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+[2025-10-14T07:27:49.292Z] ERROR: Exception non catchée: Missing parameter name at index 10: /:urlPath*; visit https://git.new/pathToRegexpError for info
+[2025-10-14T07:29:55.680Z] ERROR: Exception non catchée: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+[2025-10-14T07:34:15.243Z] ERROR: Exception non catchée: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+[2025-10-14T07:36:01.334Z] ERROR: Exception non catchée: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info

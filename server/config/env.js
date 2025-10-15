@@ -20,6 +20,7 @@ export const {
     REDIS_URL,
     UPLOAD_PATH,
     MAX_FILE_SIZE,
+    STRIPE_WEBHOOK_SECRET,
 } = process.env;
 
 // Valeurs par défaut
@@ -35,4 +36,5 @@ export const config = {
     redisUrl: REDIS_URL || 'redis://localhost:6379',
     uploadPath: UPLOAD_PATH || './uploads',
     maxFileSize: parseInt(MAX_FILE_SIZE) || 10485760,
+    stripeWebhookSecret: STRIPE_WEBHOOK_SECRET,
 };

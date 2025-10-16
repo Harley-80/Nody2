@@ -1,0 +1,41 @@
+@use '../../styles/resumes/variables' as v;
+@use '../../styles/resumes/mixins' as m;
+
+.promotion-banner {
+    .banner-title {
+        font-size: 1.5rem;
+
+        @include m.media-breakpoint-down(md) {
+            font-size: 1.25rem;
+        }
+    }
+
+    .banner-subtitle {
+        font-size: 1.125rem;
+
+        @include m.media-breakpoint-down(md) {
+            font-size: 1rem;
+        }
+    }
+
+    &.bg-gradient {
+        background: linear-gradient(
+            135deg,
+            v.$couleur-primaire 0%,
+            v.$couleur-secondaire 100%
+        ) !important;
+    }
+}
+
+// Responsive
+@include m.media-breakpoint-down(md) {
+    .promotion-banner {
+        text-align: center;
+
+        .btn {
+            margin-top: 1rem;
+            width: 100%;
+            max-width: 200px;
+        }
+    }
+}

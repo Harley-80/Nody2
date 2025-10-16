@@ -1,0 +1,181 @@
+@use '../../styles/resumes/variables' as v;
+@use '../../styles/resumes/mixins' as m;
+
+.carrousel-hero {
+    .carrousel-container {
+        height: 80vh;
+        min-height: 600px;
+        max-height: 800px;
+
+        @include m.media-breakpoint-down(lg) {
+            height: 70vh;
+            min-height: 500px;
+        }
+
+        @include m.media-breakpoint-down(md) {
+            height: 60vh;
+            min-height: 400px;
+        }
+    }
+
+    .carrousel-track {
+        height: 100%;
+        transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .carrousel-slide {
+        height: 100%;
+        position: relative;
+
+        .slide-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                90deg,
+                rgba(0, 0, 0, 0.6) 0%,
+                rgba(0, 0, 0, 0.4) 50%,
+                rgba(0, 0, 0, 0.2) 100%
+            );
+            z-index: 2;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 3;
+            padding: 2rem 0;
+
+            @include m.media-breakpoint-down(md) {
+                text-align: center;
+
+                h1 {
+                    font-size: 2.5rem !important;
+                }
+            }
+        }
+    }
+
+    .carrousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        color: v.$couleur-texte-principal;
+        font-size: 1.25rem;
+        z-index: 4;
+        transition: all v.$transition-rapide;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background: v.$couleur-fond;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: v.$ombre-md;
+        }
+
+        &.carrousel-btn-prev {
+            left: 2rem;
+        }
+
+        &.carrousel-btn-next {
+            right: 2rem;
+        }
+
+        @include m.media-breakpoint-down(md) {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+
+            &.carrousel-btn-prev {
+                left: 1rem;
+            }
+
+            &.carrousel-btn-next {
+                right: 1rem;
+            }
+        }
+    }
+
+    .carrousel-indicators {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 0.75rem;
+        z-index: 4;
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transition: all v.$transition-rapide;
+            cursor: pointer;
+
+            &.active {
+                background: v.$couleur-fond;
+                transform: scale(1.2);
+            }
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.8);
+            }
+        }
+    }
+}
+
+// Animations
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+
+    &.delay-1 {
+        animation-delay: 0.3s;
+        opacity: 0;
+    }
+
+    &.delay-2 {
+        animation-delay: 0.6s;
+        opacity: 0;
+    }
+}
+
+// Utilitaires
+.min-vh-80 {
+    min-height: 80vh;
+}
+
+.transition-all {
+    transition: all 0.3s ease;
+}

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from '../Header.jsx';
-import Footer from '../Footer.jsx';
-import PromoBanner from '../PromoBanner.jsx';
+import Header from './Header.jsx';
+import Footer from './Footer.jsx';
+import PromoBanner from './PromoBanner.jsx';
 
 const Layout = () => {
     return (

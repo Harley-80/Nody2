@@ -1,5 +1,5 @@
-@use '../../styles/resumes/variables' as v;
-@use '../../styles/resumes/mixins' as m;
+@use '../../../styles/resumes/variables' as v;
+@use '../../../styles/resumes/mixins' as m;
 
 .header-sticky {
     position: sticky;
@@ -8,20 +8,20 @@
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid v.$couleur-bordure;
-    
+
     .header-top {
         font-size: 0.875rem;
-        
+
         .nav-top a {
             text-decoration: none;
             transition: color v.$transition-rapide;
-            
+
             &:hover {
                 color: v.$couleur-primaire !important;
             }
         }
     }
-    
+
     .header-main {
         .nav-main {
             .nav-link {
@@ -29,14 +29,14 @@
                 font-weight: 500;
                 transition: color v.$transition-rapide;
                 position: relative;
-                
+
                 &:hover {
                     color: v.$couleur-primaire;
                 }
-            
+
                 &.active {
                     color: v.$couleur-primaire;
-                
+
                     &::after {
                         content: '';
                         position: absolute;
@@ -50,16 +50,16 @@
             }
         }
     }
-    
+
     .header-mobile {
         background: v.$couleur-fond;
         border-top: 1px solid v.$couleur-bordure;
-    
+
         .nav-link {
             color: v.$couleur-texte-principal;
             font-weight: 500;
             transition: all v.$transition-rapide;
-            
+
             &:hover {
                 color: v.$couleur-primaire;
                 background-color: v.$couleur-fond-secondaire;

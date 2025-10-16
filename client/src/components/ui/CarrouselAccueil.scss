@@ -1,0 +1,100 @@
+@use '../../styles/resumes/variables' as v;
+@use '../../styles/resumes/mixins' as m;
+
+.carrousel-accueil {
+    .carrousel-header {
+        border-bottom: 2px solid v.$couleur-fond-secondaire;
+        padding-bottom: 1rem;
+    }
+
+    .carrousel-container {
+        overflow: hidden;
+        padding: 0 3rem;
+
+        @include m.media-breakpoint-down(md) {
+            padding: 0 1rem;
+        }
+    }
+
+    .carrousel-track {
+        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .carrousel-slide {
+        padding: 0 0.5rem;
+    }
+
+    .carrousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 48px;
+        height: 48px;
+        border: 2px solid v.$couleur-bordure;
+        border-radius: 50%;
+        background: v.$couleur-fond;
+        color: v.$couleur-texte-principal;
+        font-size: 1.125rem;
+        z-index: 2;
+        transition: all v.$transition-rapide;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover:not(:disabled) {
+            background: v.$couleur-primaire;
+            border-color: v.$couleur-primaire;
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: v.$ombre-md;
+        }
+
+        &:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        &.carrousel-btn-prev {
+            left: 0;
+        }
+
+        &.carrousel-btn-next {
+            right: 0;
+        }
+
+        @include m.media-breakpoint-down(md) {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+    }
+
+    .carrousel-indicators {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+
+        .indicator {
+            width: 8px;
+            height: 8px;
+            border: none;
+            border-radius: 50%;
+            background: v.$couleur-bordure;
+            transition: all v.$transition-rapide;
+            cursor: pointer;
+
+            &.active {
+                background: v.$couleur-primaire;
+                transform: scale(1.3);
+            }
+
+            &:hover {
+                background: v.$couleur-primaire;
+            }
+        }
+    }
+}
+
+.transition-all {
+    transition: all 0.3s ease;
+}

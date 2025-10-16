@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext.jsx';
-import { useCart } from '../../contexts/CartContext.jsx';
+import { useAuth } from '../../../contexts/AuthContext.jsx';
+import { useCart } from '../../../contexts/CartContext.jsx';
 import SearchBar from '../SearchBar.jsx';
 import UserDropdown from '../UserDropdown.jsx';
-import LangueSelector from '../LangueSelector.jsx';
+import LangueSelector from './LangueSelector.jsx';
 import DeviseSelector from '../DeviseSelector.jsx';
 import './Header.scss';
 

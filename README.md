@@ -323,5 +323,71 @@ Système de notifications :
 ## Utilisation des Contextes
 
 ### Authentification
-```jsx
-const { estAuthentifie, utilisateur, connecter, deconnecter } = useAuth();
+- const { estAuthentifie, utilisateur, connecter, deconnecter } = useAuth();
+
+### Panier
+- const { panier, ajouterAuPanier, nombreArticles, total } = useCart();
+
+### Produits
+- const { produits, chargerProduits, rechercherProduits } = useProduits();
+
+### Notifications
+- const { showSuccess, showError, showToast } = useToast();
+
+## ÉTAPE 9 : PAGES PRINCIPALES ET COMPOSANTS UI
+### Ce qui a été accompli :
+
+## Pages et Composants UI Implémentés
+
+### Pages Principales
+- **Accueil** : Page d'accueil complète avec carrousels et sections
+- **Boutique** : Page de listing des produits avec filtres avancés
+
+### Composants UI Avancés
+
+#### Carrousels
+- **CarrouselHero** : Bannière hero avec transitions fluides
+- **CarrouselAccueil** : Carrousel de produits responsive
+- **GrilleProduitsAccueil** : Grille de produits organisée
+
+#### Cartes et Affichages
+- **ProduitCard** : Carte produit complète avec badges et actions
+- **PromotionBanner** : Bannière de promotion modulable
+
+#### Système de Filtres
+- **FiltresBoutique** : Filtres avancés avec recherche
+- Navigation par URL et état synchronisé
+
+### Fonctionnalités Implémentées
+
+#### Page Accueil
+- Carrousel hero avec animations
+- Sections catégories, nouveautés, promotions
+- Produits populaires en carrousel
+- Avantages et informations
+
+#### Page Boutique
+- Système de filtres complets (catégorie, prix, tailles, couleurs)
+- Pagination avancée
+- Tri multiple
+- États de chargement et vides
+- Design responsive mobile-first
+
+#### Composants Produit
+- Affichage des badges (nouveau, promo, populaire)
+- Système d'étoiles pour les avis
+- Actions rapides (panier, favoris)
+- Gestion des images avec fallback
+
+### Design System
+- Animations CSS fluides
+- États de chargement skeleton
+- Responsive design complet
+- Accessibilité (labels ARIA, navigation clavier)
+- Thème cohérent avec variables CSS
+
+### Performance
+- Chargement paresseux des images
+- Debouncing des recherches
+- Mémoisation des composants
+- Optimisation des re-rendus

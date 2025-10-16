@@ -12,7 +12,7 @@ const SearchBar = () => {
     const navigate = useNavigate();
     const inputRef = useRef();
     const timeoutRef = useRef();
-    
+
     useEffect(() => {
         return () => {
             if (timeoutRef.current) {

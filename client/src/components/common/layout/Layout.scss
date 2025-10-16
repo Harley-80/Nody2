@@ -2,12 +2,12 @@
 
 .layout {
     background-color: v.$couleur-fond;
-    
+
     main {
         padding-top: 1rem;
-        
+
         @include media-breakpoint-up(md) {
-        padding-top: 2rem;
+            padding-top: 2rem;
         }
     }
 }
@@ -24,5 +24,5 @@
 
 // Espacement pour le contenu fixe
 .content-with-fixed-header {
-  padding-top: 80px; // Hauteur du header
+    padding-top: 80px; // Hauteur du header
 }

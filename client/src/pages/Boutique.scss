@@ -1,0 +1,75 @@
+@use '../styles/resumes/variables' as v;
+@use '../styles/resumes/mixins' as m;
+
+.page-boutique {
+    min-height: 70vh;
+
+    .filtres-sidebar {
+        background: v.$couleur-fond;
+        border-right: 1px solid v.$couleur-bordure;
+        height: 100%;
+        transition: transform 0.3s ease;
+
+        @include m.media-breakpoint-down(lg) {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 320px;
+            z-index: v.$z-index-modal;
+            transform: translateX(-100%);
+
+            &.ouvert {
+                transform: translateX(0);
+            }
+        }
+    }
+
+    .filtres-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: v.$z-index-modal-backdrop;
+    }
+
+    .boutique-header {
+        background: v.$couleur-fond-secondaire !important;
+    }
+
+    .empty-state {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+// Pagination personnalisée
+.pagination {
+    .page-item {
+        .page-link {
+            color: v.$couleur-primaire;
+            border: 1px solid v.$couleur-bordure;
+            margin: 0 2px;
+            border-radius: v.$rayon-bordure-md;
+
+            &:hover {
+                background: v.$couleur-primaire;
+                color: white;
+                border-color: v.$couleur-primaire;
+            }
+        }
+
+        &.active .page-link {
+            background: v.$couleur-primaire;
+            border-color: v.$couleur-primaire;
+            color: white;
+        }
+
+        &.disabled .page-link {
+            color: v.$couleur-texte-tertiaire;
+            background: v.$couleur-fond-secondaire;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+@use '../../styles/resumes/variables' as v;
+
+.promo-banner {
+    background: linear-gradient(
+        135deg,
+        v.$couleur-primaire 0%,
+        v.$couleur-secondaire 100%
+    ) !important;
+
+    .btn-close {
+        font-size: 0.7rem;
+    }
+}

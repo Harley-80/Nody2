@@ -1,20 +1,34 @@
-// src/components/common/layout/PromoBanner.jsx
-
-import React from 'react';
-// Ne pas oublier d'importer le SCSS, même s'il est vide pour l'instant
+import React, { useState } from 'react';
 import './PromoBanner.scss';
 
-// Composant PromoBanner temporaire
 const PromoBanner = () => {
+    const [estVisible, setEstVisible] = useState(true);
+
+    if (!estVisible) {
+        return null;
+    }
+
     return (
-        <div
-            className="promo-banner"
-            style={{ background: 'green', color: 'white', padding: '10px', textAlign: 'center' }}
-        >
-            [Bannière Promo Temporaire]
+        <div className="promo-banner bg-primary text-white">
+            <div className="container">
+                <div className="row align-items-center py-2">
+                    <div className="col text-center">
+                        <small className="fw-medium">
+                            Livraison gratuite dès 50.000 xof d'achat | Retours gratuits sous 30
+                            jours
+                        </small>
+                    </div>
+                    <div className="col-auto">
+                        <button
+                            className="btn-close btn-close-white"
+                            onClick={() => setEstVisible(false)}
+                            aria-label="Fermer"
+                        ></button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
 
-// Exportation par défaut (C'est ce que 'import PromoBanner from ...' attend)
 export default PromoBanner;

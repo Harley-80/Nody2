@@ -1,0 +1,213 @@
+@use '../styles/resumes/variables' as v;
+@use '../styles/resumes/mixins' as m;
+
+// Page detail des produits
+.page-detail-produit {
+    .breadcrumb {
+        background: transparent;
+        padding: 0;
+
+        .breadcrumb-item {
+            a {
+                color: v.$couleur-primaire;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            &.active {
+                color: v.$couleur-texte-secondaire;
+            }
+        }
+    }
+
+    .produit-galerie {
+        .image-principale {
+            position: relative;
+
+            .badges-container {
+                z-index: 2;
+            }
+        }
+
+        .miniatures {
+            .thumbnail {
+                width: 80px;
+                border: 2px solid transparent;
+                border-radius: v.$rayon-bordure-md;
+                padding: 2px;
+                background: none;
+                transition: all v.$transition-rapide;
+
+                &.active {
+                    border-color: v.$couleur-primaire;
+                }
+
+                &:hover:not(.active) {
+                    border-color: v.$couleur-bordure;
+                }
+
+                img {
+                    border-radius: calc(#{v.$rayon-bordure-md} - 2px);
+                }
+            }
+        }
+    }
+
+    .produit-info {
+        .produit-titre {
+            color: v.$couleur-texte-principal;
+            line-height: 1.2;
+        }
+
+        .produit-notation {
+            .notation {
+                i {
+                    font-size: 1.1rem;
+                }
+            }
+
+            .note-moyenne {
+                color: v.$couleur-texte-principal;
+            }
+        }
+
+        .produit-prix {
+            .prix-actuel {
+                color: v.$couleur-primaire;
+            }
+
+            .prix-original {
+                color: v.$couleur-texte-tertiaire;
+            }
+        }
+
+        .variantes-selection {
+            .tailles-boutons,
+            .couleurs-boutons {
+                .btn {
+                    min-width: 50px;
+                }
+            }
+        }
+
+        .quantite-selector {
+            .btn {
+                width: 40px;
+            }
+
+            .form-control {
+                border-left: none;
+                border-right: none;
+            }
+        }
+
+        .stock-info {
+            i {
+                font-size: 1.1rem;
+            }
+        }
+
+        .livraison-info {
+            background: v.$couleur-fond-secondaire !important;
+
+            i {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .produit-details {
+        .nav-tabs {
+            border-bottom: 2px solid v.$couleur-bordure;
+
+            .nav-link {
+                color: v.$couleur-texte-secondaire;
+                border: none;
+                padding: 1rem 1.5rem;
+                font-weight: 500;
+
+                &:hover {
+                    color: v.$couleur-primaire;
+                    border: none;
+                }
+
+                &.active {
+                    color: v.$couleur-primaire;
+                    background: none;
+                    border: none;
+                    border-bottom: 3px solid v.$couleur-primaire;
+                }
+            }
+        }
+
+        .tab-content {
+            background: v.$couleur-fond;
+
+            .avis-resume {
+                .note-globale {
+                    color: v.$couleur-primaire;
+                }
+            }
+
+            .avis-formulaire {
+                .notation-selection {
+                    .btn {
+                        &:hover {
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+            }
+
+            .avis-item {
+                &:last-child {
+                    border-bottom: none !important;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+// Responsive
+@include m.media-breakpoint-down(lg) {
+    .page-detail-produit {
+        .produit-info {
+            margin-top: 2rem;
+        }
+
+        .produit-actions {
+            .d-md-flex {
+                flex-direction: column;
+
+                .btn {
+                    margin-bottom: 0.5rem;
+                }
+            }
+        }
+    }
+}
+
+@include m.media-breakpoint-down(md) {
+    .page-detail-produit {
+        .produit-titre {
+            font-size: 2rem !important;
+        }
+
+        .produit-prix {
+            .prix-actuel {
+                font-size: 1.75rem !important;
+            }
+        }
+
+        .nav-tabs {
+            .nav-link {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    }
+}

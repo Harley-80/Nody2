@@ -33,6 +33,16 @@ export const CartProvider = ({ children }) => {
         }
     }, [estAuthentifie]);
 
+    // **NOUVEAU useEffect pour vérifier la disponibilité des articles**
+    // Déclenché à chaque changement de taille du panier
+    useEffect(() => {
+        // La fonction doit être enveloppée ou passée ici comme dependency si on veut respecter la règle des hooks,
+        // mais pour simplifier on garde le style de l'utilisateur.
+        if (panier.length > 0) {
+            verifierDisponibiliteArticles();
+        }
+    }, [panier.length]);
+
     // Charger le panier depuis l'API
     const chargerPanier = async () => {
         try {
@@ -75,6 +85,45 @@ export const CartProvider = ({ children }) => {
         }
     };
 
+    // **NOUVELLE FONCTION pour vérifier la disponibilité des articles**
+    const verifierDisponibiliteArticles = async () => {
+        try {
+            const panierAvecDisponibilite = await Promise.all(
+                panier.map(async article => {
+                    // S'assurer d'avoir l'ID, que l'article vienne du local (objet) ou de l'API (ID)
+                    const productId = article.produit._id || article.produit;
+
+                    const response = await http.get(`${API_ENDPOINTS.PRODUCTS.GET}/${productId}`);
+
+                    if (response.success) {
+                        const produit = response.produit;
+                        const variante = produit.variantes.find(
+                            v =>
+                                v.taille === article.variante.taille &&
+                                v.couleur === article.variante.couleur
+                        );
+
+                        return {
+                            ...article,
+                            disponible:
+                                variante &&
+                                variante.estActive &&
+                                variante.quantite >= article.quantite,
+                            stockDisponible: variante ? variante.quantite : 0,
+                        };
+                    }
+
+                    // Article non trouvé ou erreur de l'API
+                    return { ...article, disponible: false, stockDisponible: 0 };
+                })
+            );
+
+            setPanier(panierAvecDisponibilite);
+        } catch (error) {
+            console.error('Erreur vérification disponibilité:', error);
+        }
+    };
+
     // Ajouter un article au panier
     const ajouterAuPanier = async (produit, variante, quantite = 1) => {
         try {
@@ -87,6 +136,9 @@ export const CartProvider = ({ children }) => {
                     sku: variante.sku,
                 },
                 prix: variante.prixPromo || variante.prix,
+                // Initialisation de la disponibilité
+                disponible: true,
+                stockDisponible: variante.quantite,
             };
 
             let resultat;
@@ -343,6 +395,8 @@ export const CartProvider = ({ children }) => {
         appliquerCodePromo,
         supprimerCodePromo,
         chargerPanier,
+        // **Ajout de la nouvelle fonction pour le contexte**
+        verifierDisponibiliteArticles,
     };
 
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
